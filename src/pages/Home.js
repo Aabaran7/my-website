@@ -26,24 +26,60 @@
 
 // export default Home;
 
-import React from 'react';
+
+// Version 2 
+// import React from 'react';
+// import './Home.css';
+// import profileImage from '../assets/profile.png'; // your profile photo
+
+// const Home = () => {
+//   return (
+//     <div className="home-container">
+//       <div className="settings-icon">⚙️</div>
+//       <img src={profileImage} alt="Profile" className="profile-image" />
+//       <h1 className="name-title">Aabaran Paudel</h1>
+//       <p className="bio-text">
+//         I'm an award-winning content writer with five eight years of experience creating compelling articles and short stories. 
+//         I'm continuously searching for new ideas and stories to capture the attention of new readers. With my knowledge 
+//         and experience, I can help you fulfill your content creation goals.
+//       </p>
+//     </div>
+//   );
+// };
+
+// export default Home;
+
+
+import React, { useState } from 'react';
+import Navbar from '../components/Navbar';
 import './Home.css';
-import profileImage from '../assets/profile.png'; // your profile photo
+// import backgroundImage from './assets/background.jpg';
+// import profileImage from './assets/profile.jpg';
 
 const Home = () => {
-  return (
-    <div className="home-container">
-      <div className="settings-icon">⚙️</div>
-      <img src={profileImage} alt="Profile" className="profile-image" />
-      <h1 className="name-title">Aabaran Paudel</h1>
-      <p className="bio-text">
-        I'm an award-winning content writer with five eight years of experience creating compelling articles and short stories. 
-        I'm continuously searching for new ideas and stories to capture the attention of new readers. With my knowledge 
-        and experience, I can help you fulfill your content creation goals.
-      </p>
-    </div>
-  );
-};
-
-export default Home;
-
+    const [showNav, setShowNav] = useState(false);
+  
+    const toggleNav = () => {
+      setShowNav(!showNav);
+    };
+  
+    return (
+      <div className="home-container">
+        <div className="hamburger-icon" onClick={toggleNav}>
+          <i className={`fas ${showNav ? 'fa-times' : 'fa-bars'}`}></i>
+        </div>
+        
+        {showNav && <Navbar onClose={() => setShowNav(false)} />}
+        
+        <img src="/assets/profile.jpg" alt="Profile" className="profile-image" />
+        <h1 className="name-title">Aabaran Paudel</h1>
+        <p className="bio-text">
+          I'm an award-winning content writer with five eight years of experience creating compelling articles and short stories. 
+          I'm continuously searching for new ideas and stories to capture the attention of new readers. With my knowledge 
+          and experience, I can help you fulfill your content creation goals.
+        </p>
+      </div>
+    );
+  };
+  
+  export default Home;

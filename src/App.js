@@ -26,18 +26,45 @@
 
 // export default App;
 
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+// import Home from './pages/Home';
+
+// function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="*" element={<Navigate to="/" />} />
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Books from './pages/Books';
+import Projects from './pages/Projects';
+import Travels from './pages/Travel';
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/travels" element={<Travels />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
 
 export default App;
+
