@@ -51,3 +51,21 @@ a:hover {
   color: var(--link-hover);
   border-bottom-color: var(--link-hover);
 }
+
+/* Leaflet CSS fixes */
+.leaflet-default-icon-path {
+  background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png);
+}
+
+.leaflet-container {
+  font-family: inherit;
+}
+
+/* Ensure navbar has highest z-index */
+.leaflet-control-container {
+  z-index: 1000 !important;
+}
+
+.leaflet-pane {
+  z-index: 1 !important;
+}

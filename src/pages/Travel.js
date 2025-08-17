@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { getVisitedCountries } from '../data/travel';
 import Navbar from '../components/Navbar';
-import TravelCard from '../components/TravelCard';
-import { travelEntries } from '../data/travel';
+import WorldMap from '../components/WorldMap';
 
-const Travels = () => {
+const Travel = () => {
   const [showNav, setShowNav] = useState(false);
-  
+  const visitedCountries = getVisitedCountries();
+
   const toggleNav = () => {
     setShowNav(!showNav);
   };
@@ -26,28 +27,22 @@ const Travels = () => {
       {/* Navigation */}
       {showNav && <Navbar onClose={() => setShowNav(false)} />}
       
-      {/* Main content */}
-      <div className="max-w-2xl mx-auto px-10 py-20">
-        <h1 className="text-4xl font-medium mb-4">
-          Travel Blog
-        </h1>
-        
-        <p className="text-base text-muted leading-relaxed mb-12">
-          My adventures around the world...
-        </p>
-        
-        <div className="flex flex-col gap-8">
-          {travelEntries.map((travel, index) => (
-            <TravelCard 
-              key={travel.id} 
-              travel={travel} 
-              showBorder={index < travelEntries.length - 1}
-            />
-          ))}
+      <div className="pt-20 px-4" onClick={() => setShowNav(false)}>
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+            Travel Adventures
+          </h1>
+          
+          {/* World Map */}
+          <WorldMap 
+            visitedCountries={visitedCountries}
+            onMapClick={() => setShowNav(false)}
+            travelEntries={[]}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-export default Travels;
+export default Travel;

@@ -1,52 +1,98 @@
 export const travelEntries = [
   {
-    id: 'nepal-adventure',
-    title: 'Nepal Adventure',
-    date: '2024',
-    location: 'Nepal',
-    description: 'Exploring the beautiful landscapes and rich culture of Nepal. From the bustling streets of Kathmandu to the serene mountains.',
-    highlights: ['Trekking in the Himalayas', 'Visiting ancient temples', 'Local cuisine exploration'],
-    status: 'Completed'
+    id: 1,
+    title: "Paris Adventure",
+    date: "March 2024",
+    location: "Paris, France",
+    countryCode: "fr",
+    description: "Explored the City of Light with its iconic landmarks and rich culture.",
+    highlights: ["Eiffel Tower", "Louvre Museum", "Notre-Dame Cathedral", "Seine River Cruise"],
+    status: "completed"
   },
   {
-    id: 'europe-backpacking',
-    title: 'Europe Backpacking',
-    date: '2023',
-    location: 'Multiple Countries',
-    description: 'Backpacking through Europe, experiencing different cultures, cuisines, and historical sites.',
-    highlights: ['Paris museums', 'Italian food tour', 'Swiss Alps hiking'],
-    status: 'Completed'
+    id: 2,
+    title: "Tokyo Exploration",
+    date: "January 2024",
+    location: "Tokyo, Japan",
+    countryCode: "jp",
+    description: "Immersed in the perfect blend of tradition and modernity in Japan's capital.",
+    highlights: ["Shibuya Crossing", "Senso-ji Temple", "Tsukiji Market", "Tokyo Skytree"],
+    status: "completed"
   },
   {
-    id: 'asia-exploration',
-    title: 'Asia Exploration',
-    date: '2022',
-    location: 'Southeast Asia',
-    description: 'Journey through Southeast Asia, discovering hidden gems and meeting amazing people.',
-    highlights: ['Thailand beaches', 'Vietnamese street food', 'Cambodian temples'],
-    status: 'Completed'
+    id: 3,
+    title: "New York City",
+    date: "December 2023",
+    location: "New York, USA",
+    countryCode: "us",
+    description: "Experienced the energy and diversity of the Big Apple.",
+    highlights: ["Times Square", "Central Park", "Statue of Liberty", "Broadway Show"],
+    status: "completed"
   },
   {
-    id: 'future-trip',
-    title: 'Future Adventure',
-    date: '2025',
-    location: 'TBD',
-    description: 'Planning the next big adventure. Always excited to explore new places and cultures.',
-    highlights: ['Planning phase', 'Researching destinations', 'Budget planning'],
-    status: 'Planning'
+    id: 4,
+    title: "London Calling",
+    date: "October 2023",
+    location: "London, UK",
+    countryCode: "uk",
+    description: "Discovered the historic charm and modern vibrancy of England's capital.",
+    highlights: ["Big Ben", "Tower of London", "British Museum", "Buckingham Palace"],
+    status: "completed"
+  },
+  {
+    id: 5,
+    title: "Rome & Vatican",
+    date: "August 2023",
+    location: "Rome, Italy",
+    countryCode: "it",
+    description: "Walked through ancient history in the Eternal City.",
+    highlights: ["Colosseum", "Vatican Museums", "Trevi Fountain", "Roman Forum"],
+    status: "completed"
+  },
+  {
+    id: 6,
+    title: "Barcelona Vibes",
+    date: "June 2023",
+    location: "Barcelona, Spain",
+    countryCode: "es",
+    description: "Enjoyed the artistic and architectural wonders of Catalonia.",
+    highlights: ["Sagrada Familia", "Park Güell", "La Rambla", "Gothic Quarter"],
+    status: "completed"
+  },
+  {
+    id: 7,
+    title: "Berlin History",
+    date: "April 2023",
+    location: "Berlin, Germany",
+    countryCode: "de",
+    description: "Explored the complex history and vibrant culture of Germany's capital.",
+    highlights: ["Brandenburg Gate", "Berlin Wall", "Museum Island", "Checkpoint Charlie"],
+    status: "completed"
+  },
+  {
+    id: 8,
+    title: "Sydney Summer",
+    date: "February 2023",
+    location: "Sydney, Australia",
+    countryCode: "au",
+    description: "Experienced the beauty of Australia's most famous city.",
+    highlights: ["Sydney Opera House", "Bondi Beach", "Harbour Bridge", "Royal Botanic Garden"],
+    status: "completed"
   }
 ];
 
 export const getTravelByYear = () => {
-  const travelByYear = {};
-  
+  const grouped = {};
   travelEntries.forEach(entry => {
-    const year = entry.date;
-    if (!travelByYear[year]) {
-      travelByYear[year] = [];
+    const year = new Date(entry.date).getFullYear();
+    if (!grouped[year]) {
+      grouped[year] = [];
     }
-    travelByYear[year].push(entry);
+    grouped[year].push(entry);
   });
-  
-  return travelByYear;
+  return grouped;
+};
+
+export const getVisitedCountries = () => {
+  return travelEntries.map(entry => entry.countryCode);
 }; 

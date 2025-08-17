@@ -1,8 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const TravelCard = ({ travel, showBorder = true }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/travel/${travel.id}`);
+  };
+
   return (
-    <article className={`${showBorder ? 'border-b border-border pb-8' : 'pb-8'}`}>
+    <article 
+      className={`${showBorder ? 'border-b border-border pb-8' : 'pb-8'} cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors duration-200`}
+      onClick={handleClick}
+    >
       <div className="flex justify-between items-start mb-2">
         <h3 className="text-lg font-medium m-0">
           {travel.title}
@@ -35,15 +45,19 @@ const TravelCard = ({ travel, showBorder = true }) => {
       
       {travel.status && (
         <span className={`text-xs px-2 py-1 rounded ${
-          travel.status === 'Completed' 
+          travel.status === 'completed' 
             ? 'bg-green-100 text-green-800' 
-            : travel.status === 'Planning'
+            : travel.status === 'planning'
             ? 'bg-blue-100 text-blue-800'
             : 'bg-yellow-100 text-yellow-800'
         }`}>
           {travel.status}
         </span>
       )}
+      
+      <div className="mt-3 text-sm text-blue-600">
+        Click to see full details →
+      </div>
     </article>
   );
 };
