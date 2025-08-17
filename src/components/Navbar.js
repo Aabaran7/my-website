@@ -4,128 +4,54 @@ import { Link } from 'react-router-dom';
 const Navbar = ({ onClose }) => {
   return (
     <div 
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        zIndex: 1000
-      }}
+      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-40"
       onClick={onClose}
     >
       <div 
-        style={{
-          backgroundColor: 'var(--background)',
-          padding: '40px',
-          borderRadius: '8px',
-          minWidth: '300px',
-          border: '1px solid var(--border)',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
-        }}
+        className="bg-background p-10 rounded-lg min-w-80 border border-border shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '30px'
-        }}>
-          <h3 style={{
-            margin: 0,
-            color: 'var(--foreground)',
-            fontWeight: 'var(--font-weight-medium)'
-          }}>
+        <div className="flex justify-between items-center mb-8">
+          <h3 className="text-foreground font-medium m-0">
             Navigation
           </h3>
           <button 
-            style={{
-              background: 'none',
-              border: 'none',
-              fontSize: '24px',
-              cursor: 'pointer',
-              color: 'var(--foreground)',
-              padding: '8px'
-            }}
+            className="bg-none border-none text-2xl cursor-pointer text-foreground p-2 hover:bg-accent transition-colors duration-200"
             onClick={onClose}
           >
             ×
           </button>
         </div>
         
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '15px'
-        }}>
+        <div className="flex flex-col gap-4">
           <Link 
             to="/" 
-            style={{
-              textDecoration: 'none',
-              color: 'var(--foreground)',
-              padding: '12px 16px',
-              borderRadius: '6px',
-              transition: 'background-color 0.2s ease',
-              textAlign: 'center'
-            }}
+            className="text-foreground no-underline p-3 rounded-md transition-all duration-200 text-center hover:bg-accent hover:text-accent-foreground hover:border-border border border-transparent"
             onClick={onClose}
-            onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--border)'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
           >
             Home
           </Link>
           
           <Link 
             to="/books" 
-            style={{
-              textDecoration: 'none',
-              color: 'var(--foreground)',
-              padding: '12px 16px',
-              borderRadius: '6px',
-              transition: 'background-color 0.2s ease',
-              textAlign: 'center'
-            }}
+            className="text-foreground no-underline p-3 rounded-md transition-all duration-200 text-center hover:bg-accent hover:text-accent-foreground hover:border-border border border-transparent"
             onClick={onClose}
-            onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--border)'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
           >
             Books
           </Link>
           
           <Link 
             to="/projects" 
-            style={{
-              textDecoration: 'none',
-              color: 'var(--foreground)',
-              padding: '12px 16px',
-              borderRadius: '6px',
-              transition: 'background-color 0.2s ease',
-              textAlign: 'center'
-            }}
+            className="text-foreground no-underline p-3 rounded-md transition-all duration-200 text-center hover:bg-accent hover:text-accent-foreground hover:border-border border border-transparent"
             onClick={onClose}
-            onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--border)'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
           >
             Projects
           </Link>
           
           <Link 
             to="/travels" 
-            style={{
-              textDecoration: 'none',
-              color: 'var(--foreground)',
-              padding: '12px 16px',
-              borderRadius: '6px',
-              transition: 'background-color 0.2s ease',
-              textAlign: 'center'
-            }}
+            className="text-foreground no-underline p-3 rounded-md transition-all duration-200 text-center hover:bg-accent hover:text-accent-foreground hover:border-border border border-transparent"
             onClick={onClose}
-            onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--border)'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
           >
             Travels
           </Link>

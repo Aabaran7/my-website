@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --font-size: 16px;
   --background: #fefcf6;
@@ -8,15 +12,6 @@
   --font-weight-normal: 400;
   --link-background: #fef8e7;
   --link-hover: #dc2626;
-}
-
-.dark {
-  --background: #1a1a1a;
-  --foreground: #fefcf6;
-  --muted: #a0a0a0;
-  --border: #333;
-  --link-background: #2d2d2d;
-  --link-hover: #fca5a5;
 }
 
 body {
@@ -48,13 +43,11 @@ p {
 a {
   color: var(--foreground);
   text-decoration: none;
-  background-color: var(--link-background);
-  padding: 2px 4px;
-  border-radius: 3px;
+  border-bottom: 2px solid var(--link-background);
   transition: all 0.2s ease;
 }
 
 a:hover {
   color: var(--link-hover);
-  text-decoration: underline;
+  border-bottom-color: var(--link-hover);
 }
